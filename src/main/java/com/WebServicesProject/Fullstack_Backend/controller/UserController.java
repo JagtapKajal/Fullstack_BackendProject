@@ -1,5 +1,6 @@
 package com.WebServicesProject.Fullstack_Backend.controller;
 
+import com.WebServicesProject.Fullstack_Backend.exception.UserNotFoundException;
 import com.WebServicesProject.Fullstack_Backend.model.User;
 import com.WebServicesProject.Fullstack_Backend.repository.UserRepository;
 import lombok.Getter;
@@ -34,4 +35,8 @@ public class UserController {
         return ResponseEntity.ok("All users have been deleted successfully.");
     }
 
+    @GetMapping("/getUser/{id}")
+    User getUserById(@PathVariable int id){
+        return userRepository.findById(id).orElseThrow(()->new UserNotFoundException(id));
+    }
 }
