@@ -19,6 +19,25 @@ public class User {
     private String gender;
     private String city;
 
+    private char grade;
+    private String course;
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public char getGrade() {
+        return grade;
+    }
+
+    public void setGrade(char grade) {
+        this.grade = grade;
+    }
+
     public int getId() {
         return id;
     }
@@ -67,6 +86,8 @@ public class User {
                 ", lName='" + lName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", city='" + city + '\'' +
+                ", grade=" + grade +
+                ", course='" + course + '\'' +
                 '}';
     }
 }
