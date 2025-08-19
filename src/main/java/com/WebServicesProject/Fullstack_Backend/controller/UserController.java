@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("http://localhost:5173")
+@RequestMapping
 public class UserController {
 
     @Autowired
@@ -36,7 +37,29 @@ public class UserController {
     }
 
     @GetMapping("/getUser/{id}")
-    User getUserById(@PathVariable int id){
-        return userRepository.findById(id).orElseThrow(()->new UserNotFoundException(id));
+    User getUserById(@PathVariable int id) {
+        return userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+    }
+    @PutMapping("/UpdateUser/{id}")
+    User updateUser(@RequestBody User newUser, @PathVariable int id){
+        return userRepository.findById(id).map(user ->{
+            user.setFName(newUser.getFName());
+            user.setLName(newUser.getLName());
+            user.setCourse(newUser.getCourse());
+            user.setGrade(newUser.getGrade());
+            user.setCity(newUser.getCity());
+            user.setGender(newUser.getGender());
+            return userRepository.save(user);
+        }).orElseThrow(()->new UserNotFoundException(id));
+        }
+
+
+        @DeleteMapping("/DeleteUser/{id}")
+    String deleteUser(@PathVariable int id){
+        if(!userRepository.existsById(id)){
+            throw  new UserNotFoundException(id);
+            }
+            userRepository.deleteById(id);
+        return  "User with id "  +id +"has been deleted.."  ;
     }
 }
