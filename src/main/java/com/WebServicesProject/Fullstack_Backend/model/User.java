@@ -22,22 +22,6 @@ public class User {
     private char grade;
     private String course;
 
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public char getGrade() {
-        return grade;
-    }
-
-    public void setGrade(char grade) {
-        this.grade = grade;
-    }
-
     public int getId() {
         return id;
     }
@@ -78,16 +62,19 @@ public class User {
         this.city = city;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", fname='" + fname + '\'' +
-                ", lname='" + lname + '\'' +
-                ", gender='" + gender + '\'' +
-                ", city='" + city + '\'' +
-                ", grade=" + grade +
-                ", course='" + course + '\'' +
-                '}';
+    public char getGrade() {
+        return grade;
+    }
+
+    public void setGrade(char grade) {
+        this.grade = grade;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }
