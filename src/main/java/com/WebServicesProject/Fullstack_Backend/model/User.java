@@ -13,8 +13,8 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
-    private String fName;
-    private String lName;
+    private String fname;
+    private String lname;
 
     private String gender;
     private String city;
@@ -46,20 +46,20 @@ public class User {
         this.id = id;
     }
 
-    public String getFName() {
-        return fName;
+    public String getFname() {
+        return fname;
     }
 
-    public void setFName(String fName) {
-        this.fName = fName;
+    public void setFname(String fname) {
+        this.fname = fname;
     }
 
-    public String getLName() {
-        return lName;
+    public String getLname() {
+        return lname;
     }
 
-    public void setLName(String lName) {
-        this.lName = lName;
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     public String getGender() {
@@ -82,8 +82,8 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
                 ", gender='" + gender + '\'' +
                 ", city='" + city + '\'' +
                 ", grade=" + grade +
